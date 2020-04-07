@@ -1,0 +1,12 @@
+{
+  "name": "ocaml-lsp-sandbox",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "start": "bsb -clean-world -make-world -w",
+    "build": "bsb -clean-world -make-world"
+  },
+  "dependencies": {
+    "bs-platform": "^7.2.2"
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "name": "ocaml-lsp-sandbox",
+  "version": "1.0.0",
+  "devDependencies": {
+    "ocaml": "4.6.x",
+    "@opam/ocaml-lsp-server": "*"
+  },
+  "resolutions": {
+    "@opam/ocaml-lsp-server": "github:ocaml/ocaml-lsp:ocaml-lsp-server.opam#ed4f500291b",
+    "@opam/ocaml-secondary-compiler": "esy-ocaml/ocaml#a5a77246b60f3",
+    "esy-secondary-toolchain-findlib-conf": "prometheansacrifice/esy-secondary-toolchain-findlib-conf#3b2d207",
+    "@opam/dune": {
+      "source": "https://github.com/ocaml/dune/releases/download/2.3.1/dune-2.3.1.tbz#408307fb131d979658be51f23128a8ea76470915",
+      "override": {
+        "buildsInSource": true,
+        "build": [
+          [
+            "ocaml",
+            "configure.ml",
+            "--libdir",
+            "#{self.lib}"
+          ],
+          [
+            "ocaml",
+            "bootstrap.ml"
+          ],
+          [
+            "./dune.exe",
+            "build",
+            "-p",
+            "dune",
+            "--profile",
+            "dune-bootstrap"
+          ]
+        ],
+        "install": "esy-installer dune.install",
+        "buildEnv": {
+          "OCAMLFIND_CONF": "$SECONDARY_OCAMLFIND_CONF"
+        },
+        "dependencies": {
+          "esy-secondary-toolchain-findlib-conf": "*"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "ocaml-lsp-sandbox",
+  "sources": ["src"],
+  "bs-dependencies": [],
+  "reason": {
+    "react-jsx": 3
+  },
+  "refmt": 3,
+  "bsc-flags": ["-open Belt"],
+  "package-specs": {
+    "module": "es6",
+    "in-source": true
+  },
+  "suffix": ".bs.js"
+}
